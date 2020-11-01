@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MondayBugKit_Example' do
+  pod 'MondayBugKit', :path => '../'
+
+  target 'MondayBugKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
