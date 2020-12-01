@@ -28,13 +28,17 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/willpowell8/MondayBugKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.0'
+  s.dependency 'Eureka'
+  s.dependency 'MBProgressHUD'
+  s.dependency 'Zip'
+  s.dependency 'Alamofire'
 
   s.source_files = 'MondayBugKit/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'MondayBugKit' => ['MondayBugKit/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'MondayBugKit' => ['MondayBugKit/Assets/*.xib']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

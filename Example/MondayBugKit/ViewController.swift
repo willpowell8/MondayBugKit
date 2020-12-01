@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MondayBugKit
 
-class ViewController: UIViewController {
+class ViewController: AbstractMondayViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,29 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction
+    func raiseBug(){
+        let documentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
+        let zipFilePath = documentsDirectory.appendingPathComponent("archive.zip")
+        //MondayAPI.uploadFile(itemId: "837095391", filePath: zipFilePath)
+        MondayBugKit.context.raiseBug(self)
+    }
+    
+    @IBAction func testNetworkCall(){
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configurationMonitor: configuration)
+             
+        guard let url = URL(string: "https://httpbin.org/headers") else {return}
+        let request = NSMutableURLRequest(url: url)
+        request.setValue(UUID().uuidString, forHTTPHeaderField: "UUID")
+        request.setValue("\(Date().timeIntervalSinceNow)", forHTTPHeaderField: "date")
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { _, response, error in
+             print("Returned")
+        })
+        task.resume()
     }
 
 }

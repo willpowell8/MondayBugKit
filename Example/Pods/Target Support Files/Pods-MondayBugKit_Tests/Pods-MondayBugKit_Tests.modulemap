@@ -1,0 +1,6 @@
+framework module Pods_MondayBugKit_Tests {
+  umbrella header "Pods-MondayBugKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

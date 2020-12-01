@@ -1,0 +1,6 @@
+framework module MondayBugKit {
+  umbrella header "MondayBugKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

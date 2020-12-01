@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MondayBugKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        RemoteLog.context.setup()
+        RemoteLog.context.profilingNetwork = true
+        MondayBugKit.context.setup(admin_access_token:"eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjg5NjYwNDgyLCJ1aWQiOjE2NjY1NzIxLCJpYWQiOiIyMDIwLTExLTAxVDEzOjQzOjAyLjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.rcVuQvJLETJcOCBW-oxSg1tsD0kY5-q6OkIAuBF2xVg", boardId:799667537)
         return true
     }
 
